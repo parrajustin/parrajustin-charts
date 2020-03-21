@@ -1,0 +1,15 @@
+apiVersion: v1
+appVersion: arm32v7-2.0.3-2201906121747ubuntu18.04.1-ls55
+description: Deluge is a lightweight, Free Software, cross-platform BitTorrent client.
+name: deluge
+version: 3.2.0
+keywords:
+  - deluge
+  - torrrent
+home: https://github.com/billimek/billimek-charts/tree/master/charts/qbittorrent
+icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
+sources:
+  - https://hub.docker.com/r/linuxserver/deluge/
+maintainers:
+  - name: Justin Parra
+    email: contact@parrajust.in
