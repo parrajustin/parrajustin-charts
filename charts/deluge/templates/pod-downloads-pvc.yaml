@@ -2,14 +2,14 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "qbittorrent.fullname" . }}-downloads
+  name: {{ template "deluge.fullname" . }}-downloads
   {{- if .Values.persistence.downloads.skipuninstall }}
   annotations:
     "helm.sh/resource-policy": keep
   {{- end }}
   labels:
-    app.kubernetes.io/name: {{ include "qbittorrent.name" . }}
-    helm.sh/chart: {{ include "qbittorrent.chart" . }}
+    app.kubernetes.io/name: {{ include "deluge.name" . }}
+    helm.sh/chart: {{ include "deluge.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:

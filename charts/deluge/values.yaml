@@ -2,6 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# deluge pod replicas
+replicaCount: 1
+
 # upgrade strategy type (e.g. Recreate or RollingUpdate)
 strategyType: Recreate
 

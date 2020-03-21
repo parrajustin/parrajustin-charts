@@ -110,4 +110,4 @@ If you get `Error: rendered manifests contain a resource that already exists. Un
 
 ---
 
-Read through the [values.yaml](https://github.com/billimek/billimek-charts/blob/master/charts/qbittorrent/values.yaml) file. It has several commented out suggested values.
+Read through the [values.yaml](https://github.com/parrajustin/parrajustin-charts/blob/master/charts/deluge/values.yaml) file. It has several commented out suggested values.
