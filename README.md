@@ -11,7 +11,7 @@ Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 Once Helm is set up properly, add the repo as follows:
 
 ```console
-helm repo add parrajustin https://billimek.com/billimek-charts/
+helm repo add parrajustin https://parrajustin.github.io/parrajustin-charts/
 ```
 
 You can then run `helm search parrajustin` to see the charts.
