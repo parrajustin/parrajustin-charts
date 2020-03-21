@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  deluge:
+  - apiVersion: v1
+    appVersion: arm32v7-2.0.3-2201906121747ubuntu18.04.1-ls55
+    created: "2020-03-21T17:31:52.071939374Z"
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: aee3d61460e50e54ffc52a7624160323c7902f3e83e477080959879142e5473b
+    home: https://github.com/parrajustin/parrajustin-charts/tree/master/charts/deluge
+    icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
+    keywords:
+    - deluge
+    - torrrent
+    maintainers:
+    - email: contact@parrajust.in
+      name: Justin Parra
+    name: deluge
+    sources:
+    - https://hub.docker.com/r/linuxserver/deluge/
+    urls:
+    - https://github.com/parrajustin/parrajustin-charts/releases/download/deluge-1.0.1/deluge-1.0.1.tgz
+    version: 1.0.1
+generated: "2020-03-21T17:31:51.984213367Z"
