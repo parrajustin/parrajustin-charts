@@ -69,49 +69,45 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            {{- if .Values.persistence.config.subPath }}
+              {{- if .Values.persistence.config.subPath }}
               subPath: {{ .Values.persistence.config.subPath }}
-            {{ end }}
+              {{ end }}
             - mountPath: /downloads
               name: downloads
-            {{- if .Values.persistence.downloads.subPath }}
+              {{- if .Values.persistence.downloads.subPath }}
               subPath: {{ .Values.persistence.downloads.subPath }}
-            {{ end }}
+              {{ end }}
             {{-  range .Values.persistence.extraMounts }}
             - mountPath: /{{ .name }}
               name: {{ .name }}
             {{- end }}            
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
+          resources: {{ toYaml .Values.resources | nindent 12 }}
       volumes:
-      - name: config
-      {{- if .Values.persistence.config.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "deluge.fullname" . }}-config{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-      - name: downloads
-      {{- if .Values.persistence.downloads.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "deluge.fullname" . }}-downloads{{- end }}
-      {{- else }}
-        emptyDir: {}
-      {{ end }}
-     {{- range .Values.persistence.extraMounts }}
-      - name: {{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ .claimName }}
-     {{- end }}      
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
+        - name: config
+          {{- if .Values.persistence.config.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.config.existingClaim }}{{ .Values.persistence.config.existingClaim }}{{- else }}{{ template "deluge.fullname" . }}-config{{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{ end }}
+        - name: downloads
+          {{- if .Values.persistence.downloads.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.downloads.existingClaim }}{{ .Values.persistence.downloads.existingClaim }}{{- else }}{{ template "deluge.fullname" . }}-downloads{{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{ end }}
+        {{- range .Values.persistence.extraMounts }}
+        - name: {{ .name }}
+          persistentVolumeClaim:
+            claimName: {{ .claimName }}
+        {{- end }}      
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{ toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity: {{ toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations: {{ toYaml . | nindent  8 }}
+      {{- end }}
