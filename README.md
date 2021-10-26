@@ -1,4 +1,4 @@
-# Collection of helm charts
+# Obselete Collection of helm charts
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![](https://github.com/parrajustin/parrajustin-charts/workflows/Release%20Charts/badge.svg?branch=master)](https://github.com/parrajustin/parrajustin-charts/actions)
