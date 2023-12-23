@@ -1,4 +1,4 @@
-name: FFmpeg-worker
+name: "ffmpeg-worker"
 description: FFmpeg worker to read the RTSP streams to mpegts files
 annotations:
   title: FFmpegWorker
