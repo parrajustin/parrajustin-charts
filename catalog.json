@@ -6,6 +6,7 @@
                 "cameras"
             ],
             "description": "FFmpeg RTSP worker",
+            "home": "https://github.com/parrajustin/parrajustin-charts",
             "healthy": true,
             "healthy_error": null,
             "location": "/__w/charts/charts/charts/ffmpeg-worker",
