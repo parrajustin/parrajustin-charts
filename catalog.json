@@ -14,9 +14,9 @@
             "latest_app_version": "0.1.0",
             "latest_human_version": "0.1.0",
             "last_update": "2023-12-22 22:33:00",
-            "name": "FFmpeg Worker",
+            "name": "ffmpeg-worker",
             "recommended": true,
-            "title": "FFmpeg-Worker",
+            "title": "ffmpeg-worker",
             "screenshots": [],
             "maintainers": [
                 {
