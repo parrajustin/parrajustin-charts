@@ -16,6 +16,13 @@
             "name": "FFmpeg Worker",
             "recommended": true,
             "title": "FFmpeg-Worker",
+            "maintainers": [
+                {
+                    "name": "justin p",
+                    "url": "https://parrajust.in/",
+                    "email": "contact@parrajust.in"
+                }
+            ],
             "tags": [],
             "sources": [
                 "https://github.com/parrajustin/go-ffmpeg-worker"
