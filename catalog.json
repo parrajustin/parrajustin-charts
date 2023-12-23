@@ -1,0 +1,25 @@
+{
+    "charts": {
+        "ffmpeg-worker": {
+            "app_readme": "<p>FFmpeg worker that writes segments of RTSP data to the nfs store.</p>",
+            "categories": [
+                "cameras"
+            ],
+            "description": "FFmpeg RTSP worker",
+            "healthy": true,
+            "location": "/__w/charts/charts/charts/ffmpeg-worker",
+            "latest_version": "latest",
+            "latest_app_version": "latest",
+            "latest_human_version": "latest",
+            "last_update": "2023-12-22 10:33:00pm",
+            "name": "FFmpeg Worker",
+            "recommended": true,
+            "title": "FFmpeg-Worker",
+            "tags": [],
+            "sources": [
+                "https://github.com/parrajustin/go-ffmpeg-worker"
+            ],
+            "icon_url": "https://ffmpeg.org/img/ffmpeg3d_white_20.png"
+        }
+    }
+}
