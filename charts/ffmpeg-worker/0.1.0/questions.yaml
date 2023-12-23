@@ -14,18 +14,34 @@ groups:
   - name: "Resource Limits"
     description: "Set CPU/memory limits for Kubernetes Pod"
 
-
-portals:
-  # web_portal:
-  #   protocols:
-  #     - "http"
-  #   host:
-  #     - "$node_ip"
-  #   ports:
-  #     - "$variable-web_port"
-  #   path: "/admin/"
-
 questions:
+  # Port configuration
+  - variable: ffmpegWorkerServiceGrpcPort
+    label: "Configure FFmpeg worker grpc Service"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for grpc service"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 32400
+
+  - variable: rtspConnectionUrl
+    label: "RTSP connection url"
+    group: "Configuration"
+    schema:
+      type: string
+
+  - variable: cameraName
+    label: "Camera Name"
+    group: "Configuration"
+    schema:
+      type: string
+
   - variable: hostNetwork
     label: "Enable Host Network"
     group: "Networking"
