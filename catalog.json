@@ -17,6 +17,7 @@
             "name": "FFmpeg Worker",
             "recommended": true,
             "title": "FFmpeg-Worker",
+            "screenshots": [],
             "maintainers": [
                 {
                     "name": "justin p",
