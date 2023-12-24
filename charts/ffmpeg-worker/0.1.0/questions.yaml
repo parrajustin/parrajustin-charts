@@ -2,9 +2,9 @@ groups:
   - name: "Configuration"
     description: "FFmpeg worker application configuration"
   - name: "Storage"
-    description: "Configure storage for pihole"
+    description: "Configure storage for the FFmpeg worker"
   - name: "Networking"
-    description: "Networking Configuration for pihole"
+    description: "Networking Configuration for the FFmpeg worker"
   - name: "Scaling/Upgrade Policy"
     description: "Configure how pods are replaced when configuration is upgraded"
   - name: "Restart Policy"
@@ -50,7 +50,7 @@ questions:
       default: false
 
   - variable: environmentVariables
-    label: "Environment Variables for Emby Server"
+    label: "Environment Variables for FFmpeg worker Server"
     group: "Configuration"
     schema:
       type: list
@@ -84,6 +84,50 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
 
+  - variable: appVolumeMounts
+    label: "FFmpeg worker Storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: "Data Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "FFmpeg worker Data Volume Name"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-ffmpeg_worker_data"
+                  editable: false
+                  hidden: true
+              - variable: mountPath
+                label: "FFmpeg worker Data Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/data"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for FFmpeg worker Data Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for FFmpeg worker Data Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+                        $ref:
+                          - "validations/lockedHostPath"
+
   - variable: extraAppVolumeMounts
     label: "Extra Host Path Volumes"
     group: "Storage"
@@ -92,7 +136,7 @@ questions:
       items:
         - variable: extraAppVolume
           label: "Host Path Volume"
-          description: "Add an extra host path volume for Pihole application"
+          description: "Add an extra host path volume for FFmpeg worker application"
           schema:
             type: dict
             attrs:
