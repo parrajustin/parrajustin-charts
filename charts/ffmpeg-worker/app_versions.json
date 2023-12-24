@@ -1,0 +1,90 @@
+{
+  "0.1.0": {
+    "healthy": true,
+    "supported": true,
+    "healthy_error": null,
+    "location": "/__w/charts/charts/charts/ffmpeg-worker/0.1.0",
+    "last_update": "2023-12-23 07:44:11",
+    "required_features": [
+      "definitions/timezone",
+      "validations/lockedHostPath",
+      "definitions/gpuConfiguration",
+      "normalize/ixVolume"
+    ],
+    "human_version": "0.1.0",
+    "version": "0.1.0",
+    "app_metadata": {
+      "runAsContext": [
+        {
+          "userName": "root",
+          "groupName": "root",
+          "gid": 0,
+          "uid": 0,
+          "description": "ffmpeg worker runs as root user."
+        }
+      ],
+      "capabilities": [
+        {
+          "name": "CHOWN",
+          "description": "FFmpeg worker is able to chown files."
+        },
+        {
+          "name": "FOWNER",
+          "description": "FFmpeg worker is able to bypass permission checks for it's sub-processes."
+        },
+        {
+          "name": "SYS_CHROOT",
+          "description": "FFmpeg worker is able to use chroot."
+        },
+        {
+          "name": "MKNOD",
+          "description": "FFmpeg worker is able to create device nodes."
+        },
+        {
+          "name": "DAC_OVERRIDE",
+          "description": "FFmpeg worker is able to bypass permission checks."
+        },
+        {
+          "name": "FSETID",
+          "description": "FFmpeg worker is able to set file capabilities."
+        },
+        {
+          "name": "KILL",
+          "description": "FFmpeg worker is able to kill processes."
+        },
+        {
+          "name": "SETGID",
+          "description": "FFmpeg worker is able to set group ID for it's sub-processes."
+        },
+        {
+          "name": "SETUID",
+          "description": "FFmpeg worker is able to set user ID for it's sub-processes."
+        },
+        {
+          "name": "SETPCAP",
+          "description": "FFmpeg worker is able to set process capabilities."
+        },
+        {
+          "name": "NET_BIND_SERVICE",
+          "description": "FFmpeg worker is able to bind to privileged ports."
+        },
+        {
+          "name": "SETFCAP",
+          "description": "FFmpeg worker is able to set file capabilities."
+        },
+        {
+          "name": "NET_RAW",
+          "description": "FFmpeg worker is able to use raw sockets."
+        },
+        {
+          "name": "AUDIT_WRITE",
+          "description": "FFmpeg worker is able to write to audit log."
+        }
+      ],
+      "hostMounts": []
+    },
+    "app_readme": "<p><h1>FFmpeg worker to read the RTSP streams to mpegts files.</h1></p>",
+    "detailed_readme": "<p>FFmpeg worker to read the RTSP streams to mpegts files.</p>",
+    "changelog": null
+  }
+}
