@@ -13,6 +13,46 @@
     ],
     "human_version": "0.1.0",
     "version": "0.1.0",
+    "chart_metadata": {
+      "name": "ffmpeg-worker",
+      "description": "FFmpeg worker to read the RTSP streams to mpegts files",
+      "type": "application",
+      "version": "0.1.0",
+      "apiVersion": "v2",
+      "appVersion": "2023-03-13",
+      "kubeVersion": ">=1.16.0-0",
+      "maintainers": [
+        {
+          "name": "Justin P",
+          "email": "contact@parrajust.in"
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "common",
+          "version": "16.2.15",
+          "repository": "https://library-charts.truecharts.org",
+          "condition": "",
+          "alias": "",
+          "tags": [],
+          "import-values": []
+        }
+      ],
+      "home": "https://min.io",
+      "icon": "https://ffmpeg.org/img/ffmpeg3d_white_20.png",
+      "sources": [
+        "https://github.com/parrajustin/go-ffmpeg-worker"
+      ],
+      "keywords": [
+        "cameras"
+      ],
+      "annotations": {
+        "title": "FFmpegWorker",
+        "truecharts.org/SCALE-support": "true",
+        "truecharts.org/category": "cameras",
+        "truecharts.org/train": "stable"
+      }
+    },
     "app_metadata": {
       "runAsContext": [
         {
