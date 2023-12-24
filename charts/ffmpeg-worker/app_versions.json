@@ -30,12 +30,8 @@
       "dependencies": [
         {
           "name": "common",
-          "version": "16.2.15",
-          "repository": "https://library-charts.truecharts.org",
-          "condition": "",
-          "alias": "",
-          "tags": [],
-          "import-values": []
+          "repository": "file://../../../common/2304.0.1",
+          "version": "2304.0.1"
         }
       ],
       "home": "https://min.io",
