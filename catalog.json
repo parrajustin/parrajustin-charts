@@ -30,6 +30,38 @@
                 "https://github.com/parrajustin/go-ffmpeg-worker"
             ],
             "icon_url": "https://ffmpeg.org/img/ffmpeg3d_white_20.png"
+        },
+        "mongodb-worker": {
+            "app_readme": "<p>Fast, reliable, scalable, and easy to use open-source no-sql database system.</p>",
+            "categories": [
+                "cameras",
+                "database"
+            ],
+            "description": "Mongodb worker",
+            "home": "https://github.com/parrajustin/parrajustin-charts",
+            "healthy": true,
+            "healthy_error": null,
+            "location": "/__w/charts/charts/charts/mongodb-worker",
+            "latest_version": "0.1.0",
+            "latest_app_version": "0.1.0",
+            "latest_human_version": "0.1.0",
+            "last_update": "2023-12-24 22:33:00",
+            "name": "mongodb-worker",
+            "recommended": true,
+            "title": "mongodb-worker",
+            "screenshots": [],
+            "maintainers": [
+                {
+                    "name": "justin p",
+                    "url": "https://parrajust.in/",
+                    "email": "contact@parrajust.in"
+                }
+            ],
+            "tags": [],
+            "sources": [
+                "https://github.com/mongodb/mongo"
+            ],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.png"
         }
     }
 }

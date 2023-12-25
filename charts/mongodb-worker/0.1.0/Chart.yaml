@@ -1,4 +1,4 @@
-name: "mongodb"
+name: "mongodb-worker"
 description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
 type: application
 version: 0.1.0
@@ -20,7 +20,7 @@ keywords:
   - cameras
   - database
 annotations:
-  title: MongoDB
+  title: MongoDBWorker
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cameras
   truecharts.org/train: stable
