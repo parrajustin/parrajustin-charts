@@ -1,0 +1,26 @@
+name: "mongodb"
+description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
+type: application
+version: 0.1.0
+apiVersion: v2
+appVersion: 7.0.4
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: Justin P
+    email: contact@parrajust.in
+dependencies:
+  - name: common
+    repository: file://../../../common/2304.0.1
+    version: 2304.0.1
+home: https://www.mongodb.com/
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.png
+sources:
+  - https://github.com/mongodb/mongo
+keywords:
+  - cameras
+  - database
+annotations:
+  title: MongoDB
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: cameras
+  truecharts.org/train: stable
