@@ -1,5 +1,5 @@
 image:
-  repository: _/mongo
+  repository: mongo
   pullPolicy: IfNotPresent
   tag: 7.0.4@sha256:5cac0ca634f0932298bac9b2cfe6a9d9161b7e501a551bd9a6aae8c90308cfbf
 
