@@ -1,9 +1,9 @@
 {
-    "0.2.0-m": {
+    "2023.12.dev4": {
       "healthy": true,
       "supported": true,
       "healthy_error": null,
-      "location": "/__w/charts/charts/charts/mongodb-worker/0.2.0-m",
+      "location": "/__w/charts/charts/charts/mongodb-worker/2023.12.dev4",
       "last_update": "2023-12-24 07:44:11",
       "required_features": [
         "definitions/timezone",
@@ -11,13 +11,13 @@
         "definitions/gpuConfiguration",
         "normalize/ixVolume"
       ],
-      "human_version": "0.2.0-m",
-      "version": "0.2.0-m",
+      "human_version": "2023.12.dev4",
+      "version": "2023.12.dev4",
       "chart_metadata": {
         "name": "mongodb-worker",
         "description": "Fast, reliable, scalable, and easy to use open-source no-sql database system.",
         "type": "application",
-        "version": "0.2.0-m",
+        "version": "2023.12.dev4",
         "apiVersion": "v2",
         "appVersion": "7.0.4",
         "kubeVersion": ">=1.16.0-0",
