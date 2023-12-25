@@ -110,3 +110,17 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
         {{ end }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  selector:
+    app.kubernetes.io/name: "mongodb-worker"
+  ports:
+  - name: "manage-tcp"
+    protocol: TCP
+    port: {{ .Values.MongodbApplicationPort }}
+    nodePort: {{ .Values.MongodbApplicationPort }}
