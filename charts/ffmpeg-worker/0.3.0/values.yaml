@@ -1,4 +1,4 @@
 image:
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   repository: xerofuzzion/go-ffmpeg-worker
   tag: "0.3.0"
