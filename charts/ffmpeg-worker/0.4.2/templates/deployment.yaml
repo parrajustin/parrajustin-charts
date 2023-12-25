@@ -31,15 +31,15 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           - name: grpc_tcp
             protocol: TCP
             containerPort: 8086
-            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
           - name: grpc_udp
             protocol: UDP
             containerPort: 8086
-            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
           - name: http
             protocol: TCP
             containerPort: 8085
-            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.http_port }}
+            hostPort: {{ .Values.ffmpegWorkerServiceHttpPort }}
           env:
             - name: KUBE_NAMESPACE
               valueFrom:
@@ -58,7 +58,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
             grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -66,7 +66,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 2
           livenessProbe:
             grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
@@ -74,7 +74,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             successThreshold: 1
           startupProbe:
             grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2

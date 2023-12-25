@@ -1,9 +1,9 @@
 {
-  "0.4.1": {
+  "0.4.2": {
     "healthy": true,
     "supported": true,
     "healthy_error": null,
-    "location": "/__w/charts/charts/charts/ffmpeg-worker/0.4.1",
+    "location": "/__w/charts/charts/charts/ffmpeg-worker/0.4.2",
     "last_update": "2023-12-24 07:44:11",
     "required_features": [
       "definitions/timezone",
@@ -11,13 +11,13 @@
       "definitions/gpuConfiguration",
       "normalize/ixVolume"
     ],
-    "human_version": "0.4.1",
-    "version": "0.4.1",
+    "human_version": "0.4.2",
+    "version": "0.4.2",
     "chart_metadata": {
       "name": "ffmpeg-worker",
       "description": "FFmpeg worker to read the RTSP streams to mpegts files",
       "type": "application",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "apiVersion": "v2",
       "appVersion": "2023-03-13",
       "kubeVersion": ">=1.16.0-0",

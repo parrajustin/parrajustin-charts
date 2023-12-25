@@ -17,25 +17,29 @@ groups:
 questions:
   # Port configuration
   - variable: ffmpegWorkerServiceGrpcPort
-    label: "Configure FFmpeg worker grpc Service"
+    group: "Networking"
+    label: "Port to expose for grpc service"
+    schema:
+      type: int
+      min: 9000
+      max: 65535
+      default: 32400
+
+  - variable: ffmpegWorkerServiceHttpPort
+    group: "Networking"
+    label: "Port to expose for http service"
+    schema:
+      type: int
+      min: 9000
+      max: 65535
+      default: 32500
+
+  - variable: hostNetwork
+    label: "Enable Host Network"
     group: "Networking"
     schema:
-      type: dict
-      attrs:
-        - variable: grpc_port
-          label: "Port to expose for grpc service"
-          schema:
-            type: int
-            min: 9000
-            max: 65535
-            default: 32400
-        - variable: http_port
-          label: "Port to expose for http counter service"
-          schema:
-            type: int
-            min: 9000
-            max: 65535
-            default: 32500
+      type: boolean
+      default: false
 
   - variable: rtspConnectionUrl
     label: "RTSP connection url"
@@ -48,13 +52,6 @@ questions:
     group: "Configuration"
     schema:
       type: string
-
-  - variable: hostNetwork
-    label: "Enable Host Network"
-    group: "Networking"
-    schema:
-      type: boolean
-      default: false
 
   - variable: environmentVariables
     label: "Environment Variables for FFmpeg worker Server"
