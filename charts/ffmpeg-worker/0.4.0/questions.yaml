@@ -22,13 +22,20 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: port
+        - variable: grpc_port
           label: "Port to expose for grpc service"
           schema:
             type: int
             min: 9000
             max: 65535
             default: 32400
+        - variable: http_port
+          label: "Port to expose for http counter service"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 32500
 
   - variable: rtspConnectionUrl
     label: "RTSP connection url"

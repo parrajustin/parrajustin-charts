@@ -28,11 +28,19 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: pms
+          - name: grpc
             protocol: TCP
             containerPort: 8086
           {{- if .Values.hostNetwork }}
-            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.port }}
+            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
+          {{- else }}
+            hostPort: null
+          {{- end }}
+          - name: http
+            protocol: TCP
+            containerPort: 8085
+          {{- if .Values.hostNetwork }}
+            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.http_port }}
           {{- else }}
             hostPort: null
           {{- end }}
@@ -53,24 +61,24 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ $envList = mustAppend $envList (dict "name" "CameraName" "value" .Values.cameraName) }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
-            tcpSocket:
-              port: 32400
+            grpc:
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 5
             successThreshold: 2
           livenessProbe:
-            tcpSocket:
-              port: 32400
+            grpc:
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 5
             successThreshold: 1
           startupProbe:
-            tcpSocket:
-              port: 32400
+            grpc:
+              port: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2
