@@ -219,6 +219,78 @@
             }
           },
           {
+            "variable": "appVolumeMounts",
+            "label": "Mongodb worker Storage",
+            "group": "Storage",
+            "schema": {
+              "type": "dict",
+              "attrs": [
+                {
+                  "variable": "data",
+                  "label": "Data Volume",
+                  "schema": {
+                    "type": "dict",
+                    "attrs": [
+                      {
+                        "variable": "datasetName",
+                        "label": "Data Volume Name",
+                        "schema": {
+                          "type": "string",
+                          "$ref": [
+                            "normalize/ixVolume"
+                          ],
+                          "show_if": [
+                            [
+                              "hostPathEnabled",
+                              "=",
+                              false
+                            ]
+                          ],
+                          "default": "ix-mongdb_worker_data",
+                          "editable": false,
+                          "hidden": true
+                        }
+                      },
+                      {
+                        "variable": "mountPath",
+                        "label": "Data Mount Path",
+                        "description": "Path where the volume will be mounted inside the pod",
+                        "schema": {
+                          "type": "path",
+                          "hidden": true,
+                          "editable": false,
+                          "default": "/data/db"
+                        }
+                      },
+                      {
+                        "variable": "hostPathEnabled",
+                        "label": "Enable Host Path",
+                        "schema": {
+                          "type": "boolean",
+                          "default": false,
+                          "show_subquestions_if": true,
+                          "subquestions": [
+                            {
+                              "variable": "hostPath",
+                              "label": "Host Path for the Data Volume",
+                              "schema": {
+                                "type": "hostpath",
+                                "required": true,
+                                "$ref": [
+                                  "validations/lockedHostPath"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
             "variable": "extraAppVolumeMounts",
             "label": "Extra Host Path Volumes",
             "group": "Storage",
