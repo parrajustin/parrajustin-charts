@@ -28,22 +28,18 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: grpc
+          - name: grpc_tcp
             protocol: TCP
             containerPort: 8086
-          {{- if .Values.hostNetwork }}
             hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
-          {{- else }}
-            hostPort: null
-          {{- end }}
+          - name: grpc_udp
+            protocol: UDP
+            containerPort: 8086
+            hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.grpc_port }}
           - name: http
             protocol: TCP
             containerPort: 8085
-          {{- if .Values.hostNetwork }}
             hostPort: {{ .Values.ffmpegWorkerServiceGrpcPort.http_port }}
-          {{- else }}
-            hostPort: null
-          {{- end }}
           env:
             - name: KUBE_NAMESPACE
               valueFrom:
