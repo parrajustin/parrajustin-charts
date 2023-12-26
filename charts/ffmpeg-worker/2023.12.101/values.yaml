@@ -1,0 +1,33 @@
+image:
+  pullPolicy: Always
+  repository: xerofuzzion/go-ffmpeg-worker
+  tag: "0.5.1"
+
+
+appVolumeMounts:
+  data:
+    datasetName: "ix-ffmpeg_worker_data"
+    mountPath: "/data/db"
+
+hostNetwork: false
+ffmpegWorkerServiceHttpPort: 32500
+ffmpegWorkerServiceGrpcPort: 32400
+
+service:
+  mongodb:
+    enabled: true
+    primary: true
+    type: NodePort
+    targetSelector: "ffmpeg-worker"
+    ports:
+      manage-http:
+        enabled: true
+        primary: true
+        port: 8085
+        nodePort: '{{ ( .Values.ffmpegWorkerServiceHttpPort | default 32500 ) }}'
+        targetSelector: "ffmpeg-worker"
+      manage-grpc:
+        enabled: true
+        port: 8086
+        nodePort: '{{ ( .Values.ffmpegWorkerServiceGrpcPort | default 32400 ) }}'
+        targetSelector: "ffmpeg-worker"

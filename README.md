@@ -23,3 +23,10 @@ See [helm hub](https://hub.helm.sh/charts/billimek) for a complete list.
 ## License
 
 [MIT](./LICENSE)
+
+## Verify heml
+
+```bash
+helm package charts/ffmpeg-worker/2023.12.101
+helm template ffmpeg-worker-2023.12.101.tgz  --debug
+```
