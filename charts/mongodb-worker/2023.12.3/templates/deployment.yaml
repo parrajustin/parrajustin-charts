@@ -45,6 +45,10 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               readOnly: {{ $hostPathConfiguration.readOnly }}
               {{ end }}
             {{ end }}
+          ports:
+          - name: "mongodb-port"
+            protocol: TCP
+            containerPort: {{ .Values.MongodbApplicationPort }}
           env:
             - name: KUBE_NAMESPACE
               valueFrom:
