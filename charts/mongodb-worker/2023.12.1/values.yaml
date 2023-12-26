@@ -5,6 +5,7 @@ image:
 
 mongodbPassword: "default"
 mongodbRootPassword: "default"
+MongodbApplicationPort: 27017
 
 secret:
   data:
@@ -12,3 +13,24 @@ secret:
     data: 
       mongodbPassword: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
       mongodbRootPassword: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
+
+appVolumeMounts:
+  data:
+    datasetName: "ix-mongdb_worker_data"
+    mountPath: "/data/db"
+
+hostNetwork: false
+
+service:
+  mongodb:
+    enabled: true
+    primary: true
+    type: NodePort
+    targetSelector: "mongodb-worker"
+    ports:
+      manage-out-port:
+        enabled: true
+        primary: true
+        port: '{{ ( .Values.MongodbApplicationPort | default 27017 ) }}'
+        nodePort: '{{ ( .Values.MongodbApplicationPort | default 27017 ) }}'
+        targetSelector: "mongodb-worker"
