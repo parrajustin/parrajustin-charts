@@ -15,6 +15,10 @@ stringData:
   rtspConnectionUrl: {{ .Values.rtspConnectionUrl }}
   databaseConnectionString: {{ .Values.databaseConnectionString }}
 
+{{ include "ffmpegworker.portal" $ -}}
+
+{{ include "ix.v1.common.spawner.service" $ -}}
+
 ---
 {{ include "common.storage.hostPathValidate" .Values }}
 {{ include "common.deployment.common_config" . | nindent 0 }}
@@ -114,7 +118,3 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
         {{ end }}
-
-{{ include "ix.v1.common.spawner.service" $ -}}
----
-{{ include "ffmpegworker.portal" $ -}}

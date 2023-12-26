@@ -50,4 +50,5 @@ spec:
   {{- end }}
   selector:
     app.kubernetes.io/name: {{ $rootCtx.Release.Name }}
+{{/* This comment is here to add a new line */}}
 {{- end -}}
