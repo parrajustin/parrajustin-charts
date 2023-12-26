@@ -1,0 +1,36 @@
+image:
+  repository: mongo
+  pullPolicy: IfNotPresent
+  tag: 7.0.4@sha256:5cac0ca634f0932298bac9b2cfe6a9d9161b7e501a551bd9a6aae8c90308cfbf
+
+mongodbPassword: "default"
+mongodbRootPassword: "default"
+MongodbApplicationPort: 27017
+
+secret:
+  data:
+    name: "mongodb-secrets"
+    data: 
+      mongodbPassword: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
+      mongodbRootPassword: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
+
+appVolumeMounts:
+  data:
+    datasetName: "ix-mongdb_worker_data"
+    mountPath: "/data/db"
+
+hostNetwork: false
+
+service:
+  mongodb:
+    enabled: true
+    primary: true
+    type: NodePort
+    targetSelector: "mongodb-worker"
+    ports:
+      manage-out-port:
+        enabled: true
+        primary: true
+        port: 27017
+        nodePort: '{{ ( .Values.MongodbApplicationPort | default 27017 ) }}'
+        targetSelector: "mongodb-worker"
