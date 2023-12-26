@@ -49,5 +49,5 @@ spec:
     {{- . | nindent 4 }}
   {{- end }}
   selector:
-    - app.kubernetes.io/name: {{ $rootCtx.Release.Name }}
+    app.kubernetes.io/name: {{ $rootCtx.Release.Name }}
 {{- end -}}
