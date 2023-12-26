@@ -79,24 +79,30 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ $envList = mustAppend $envList (dict "name" "CameraName" "value" .Values.cameraName) }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
-            grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
+            exec:
+              command:
+              - wget
+              - localhost:8085
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 5
             successThreshold: 2
           livenessProbe:
-            grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
+            exec:
+              command:
+              - wget
+              - localhost:8085
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
             failureThreshold: 5
             successThreshold: 1
           startupProbe:
-            grpc:
-              port: {{ .Values.ffmpegWorkerServiceGrpcPort }}
+            exec:
+              command:
+              - wget
+              - localhost:8085
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2
