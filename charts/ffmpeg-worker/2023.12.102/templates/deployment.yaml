@@ -52,15 +52,15 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           ports:
           - name: "grpc-tcp"
             protocol: TCP
-            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort | quote }}
+            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
             hostPort: null
           - name: "grpc-udp"
             protocol: UDP
-            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort | quote }}
+            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
             hostPort: null
           - name: "http"
             protocol: TCP
-            containerPort: {{ .Values.ffmpegWorkerServiceHttpPort | quote }}
+            containerPort: {{ .Values.ffmpegWorkerServiceHttpPort }}
             hostPort: null
           env:
             - name: KUBE_NAMESPACE
