@@ -1,18 +1,18 @@
 {
     "charts": {
         "static-videos": {
-            "app_readme": "<p>FFmpeg worker to read the RTSP streams to mpegts files.</p>",
+            "app_readme": "<p>Static file server for the videos.</p>",
             "categories": [
                 "cameras"
             ],
-            "description": "FFmpeg worker to read the RTSP streams to mpegts files.",
+            "description": "Static file server for the videos.",
             "home": "https://github.com/parrajustin/parrajustin-charts",
             "healthy": true,
             "healthy_error": null,
             "location": "/__w/charts/charts/charts/static-videos",
-            "latest_version": "2023.12.2",
-            "latest_app_version": "2023.12.2",
-            "latest_human_version": "2023.12.2",
+            "latest_version": "2023.12.3",
+            "latest_app_version": "2023.12.3",
+            "latest_human_version": "2023.12.3",
             "last_update": "2023-12-24 22:33:00",
             "name": "static-videos",
             "recommended": true,

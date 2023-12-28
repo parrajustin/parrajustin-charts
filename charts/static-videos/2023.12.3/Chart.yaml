@@ -1,0 +1,28 @@
+name: "static-videos"
+description: Static file server for the videos
+type: application
+version: 2023.12.3
+apiVersion: v2
+appVersion: '2023-12-27'
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: Justin P
+    email: contact@parrajust.in
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.5
+  - name: common
+    repository: file://../../../common/2304.0.1
+    version: 2304.0.1
+home: https://min.io
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/archiveteam-warrior.png
+sources:
+  - https://github.com/parrajustin/go-static-videos
+keywords:
+  - cameras
+annotations:
+  title: StaticVideos
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: cameras
+  truecharts.org/train: stable
