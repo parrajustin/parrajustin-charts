@@ -88,7 +88,7 @@ questions:
                   type: path
                   hidden: true
                   editable: false
-                  default: "/data"
+                  default: "/video"
               - variable: hostPathEnabled
                 label: "Enable Host Path for the app Data Volume"
                 schema:
