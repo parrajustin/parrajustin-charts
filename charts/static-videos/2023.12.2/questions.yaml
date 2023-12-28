@@ -23,7 +23,7 @@ portals:
 questions:
   # Configuration
   - variable: videosDataPath
-    label: "The database connection string"
+    label: "The static videos path"
     group: "Configuration"
     schema:
       type: string
