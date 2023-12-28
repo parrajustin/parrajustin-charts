@@ -1,4 +1,412 @@
 {
+  "2023.12.4": {
+    "healthy": true,
+    "supported": true,
+    "healthy_error": null,
+    "location": "/__w/charts/charts/charts/static-videos/2023.12.4",
+    "last_update": "2023-12-25 07:44:11",
+    "required_features": [
+      "definitions/timezone",
+      "validations/lockedHostPath",
+      "definitions/gpuConfiguration",
+      "normalize/ixVolume"
+    ],
+    "human_version": "2023.12.4",
+    "version": "2023.12.4",
+    "chart_metadata": {
+      "name": "static-videos",
+      "description": "Static file server for the videos",
+      "type": "application",
+      "version": "2023.12.4",
+      "apiVersion": "v2",
+      "appVersion": "2023-12-27",
+      "kubeVersion": ">=1.16.0-0",
+      "maintainers": [
+        {
+          "name": "Justin P",
+          "email": "contact@parrajust.in"
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "common",
+          "repository": "file://../../../common",
+          "version": "1.2.5"
+        },
+        {
+          "name": "common",
+          "repository": "file://../../../common/2304.0.1",
+          "version": "2304.0.1"
+        }
+      ],
+      "home": "https://min.io",
+      "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/archiveteam-warrior.png",
+      "sources": [
+        "https://github.com/parrajustin/go-static-videos"
+      ],
+      "keywords": [
+        "cameras"
+      ],
+      "annotations": {
+        "title": "StaticVideos",
+        "truecharts.org/SCALE-support": "true",
+        "truecharts.org/category": "cameras",
+        "truecharts.org/train": "stable"
+      }
+    },
+    "app_metadata": {
+      "runAsContext": [
+        {
+          "userName": "root",
+          "groupName": "root",
+          "gid": 0,
+          "uid": 0,
+          "description": "ffmpeg worker runs as root user."
+        }
+      ],
+      "capabilities": [
+        {
+          "name": "CHOWN",
+          "description": "FFmpeg worker is able to chown files."
+        },
+        {
+          "name": "FOWNER",
+          "description": "FFmpeg worker is able to bypass permission checks for it's sub-processes."
+        },
+        {
+          "name": "SYS_CHROOT",
+          "description": "FFmpeg worker is able to use chroot."
+        },
+        {
+          "name": "MKNOD",
+          "description": "FFmpeg worker is able to create device nodes."
+        },
+        {
+          "name": "DAC_OVERRIDE",
+          "description": "FFmpeg worker is able to bypass permission checks."
+        },
+        {
+          "name": "FSETID",
+          "description": "FFmpeg worker is able to set file capabilities."
+        },
+        {
+          "name": "KILL",
+          "description": "FFmpeg worker is able to kill processes."
+        },
+        {
+          "name": "SETGID",
+          "description": "FFmpeg worker is able to set group ID for it's sub-processes."
+        },
+        {
+          "name": "SETUID",
+          "description": "FFmpeg worker is able to set user ID for it's sub-processes."
+        },
+        {
+          "name": "SETPCAP",
+          "description": "FFmpeg worker is able to set process capabilities."
+        },
+        {
+          "name": "NET_BIND_SERVICE",
+          "description": "FFmpeg worker is able to bind to privileged ports."
+        },
+        {
+          "name": "SETFCAP",
+          "description": "FFmpeg worker is able to set file capabilities."
+        },
+        {
+          "name": "NET_RAW",
+          "description": "FFmpeg worker is able to use raw sockets."
+        },
+        {
+          "name": "AUDIT_WRITE",
+          "description": "FFmpeg worker is able to write to audit log."
+        }
+      ],
+      "hostMounts": []
+    },
+    "schema": {
+      "groups": [
+        {
+          "name": "Configuration",
+          "description": "Application configuration"
+        },
+        {
+          "name": "Storage",
+          "description": "Configure storage for the app"
+        },
+        {
+          "name": "Networking",
+          "description": "Networking Configuration for the app"
+        },
+        {
+          "name": "Scaling/Upgrade Policy",
+          "description": "Configure how pods are replaced when configuration is upgraded"
+        },
+        {
+          "name": "Resource Limits",
+          "description": "Set CPU/memory limits for Kubernetes Pod"
+        }
+      ],
+      "portals": {
+        "web_portal": {
+          "protocols": [
+            "$kubernetes-resource_configmap_portal_protocol"
+          ],
+          "host": [
+            "$kubernetes-resource_configmap_portal_host"
+          ],
+          "ports": [
+            "$kubernetes-resource_configmap_portal_port"
+          ],
+          "path": "$kubernetes-resource_configmap_portal_path"
+        }
+      },
+      "questions": [
+        {
+          "variable": "videosDataPath",
+          "label": "The database connection string",
+          "group": "Configuration",
+          "schema": {
+            "type": "string",
+            "default": "/video",
+            "required": true
+          }
+        },
+        {
+          "variable": "environmentVariables",
+          "label": "Environment Variables",
+          "group": "Configuration",
+          "schema": {
+            "type": "list",
+            "default": [],
+            "items": [
+              {
+                "variable": "environmentVariable",
+                "label": "Environment Variable",
+                "schema": {
+                  "type": "dict",
+                  "attrs": [
+                    {
+                      "variable": "name",
+                      "label": "Name",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "variable": "value",
+                      "label": "Value",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "variable": "appVolumeMounts",
+          "label": "App Storage",
+          "group": "Storage",
+          "schema": {
+            "type": "dict",
+            "attrs": [
+              {
+                "variable": "data",
+                "label": "Data Volume",
+                "schema": {
+                  "type": "dict",
+                  "attrs": [
+                    {
+                      "variable": "datasetName",
+                      "label": "App data Volume Name",
+                      "schema": {
+                        "type": "string",
+                        "$ref": [
+                          "normalize/ixVolume"
+                        ],
+                        "show_if": [
+                          [
+                            "hostPathEnabled",
+                            "=",
+                            false
+                          ]
+                        ],
+                        "default": "ix-static_videos",
+                        "editable": false,
+                        "hidden": true
+                      }
+                    },
+                    {
+                      "variable": "mountPath",
+                      "label": "App Data Mount Path",
+                      "description": "Path where the volume will be mounted inside the pod",
+                      "schema": {
+                        "type": "path",
+                        "hidden": true,
+                        "editable": false,
+                        "default": "/data"
+                      }
+                    },
+                    {
+                      "variable": "hostPathEnabled",
+                      "label": "Enable Host Path for the app Data Volume",
+                      "schema": {
+                        "type": "boolean",
+                        "default": false,
+                        "show_subquestions_if": true,
+                        "subquestions": [
+                          {
+                            "variable": "hostPath",
+                            "label": "Host Path for the app Data Volume",
+                            "schema": {
+                              "type": "hostpath",
+                              "required": true,
+                              "$ref": [
+                                "validations/lockedHostPath"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "variable": "extraAppVolumeMounts",
+          "label": "Extra Host Path Volumes",
+          "group": "Storage",
+          "schema": {
+            "type": "list",
+            "items": [
+              {
+                "variable": "extraAppVolume",
+                "label": "Host Path Volume",
+                "description": "Add an extra host path volume",
+                "schema": {
+                  "type": "dict",
+                  "attrs": [
+                    {
+                      "variable": "mountPath",
+                      "label": "Mount Path in Pod",
+                      "description": "Path where the volume will be mounted inside the pod",
+                      "schema": {
+                        "type": "path",
+                        "required": true
+                      }
+                    },
+                    {
+                      "variable": "hostPath",
+                      "label": "Host Path",
+                      "description": "Host path",
+                      "schema": {
+                        "type": "hostpath",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "variable": "serviceHttpPort",
+          "group": "Networking",
+          "label": "Port to expose for http service",
+          "schema": {
+            "type": "int",
+            "min": 9000,
+            "max": 65535,
+            "default": 31500
+          }
+        },
+        {
+          "variable": "hostNetwork",
+          "label": "Enable Host Network",
+          "group": "Networking",
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        {
+          "variable": "updateStrategy",
+          "description": "Upgrade Policy",
+          "label": "Update Strategy",
+          "group": "Scaling/Upgrade Policy",
+          "schema": {
+            "type": "string",
+            "default": "Recreate",
+            "enum": [
+              {
+                "value": "RollingUpdate",
+                "description": "Create new pods and then kill old ones"
+              },
+              {
+                "value": "Recreate",
+                "description": "Kill existing pods before creating new ones"
+              }
+            ]
+          }
+        },
+        {
+          "variable": "enableResourceLimits",
+          "label": "Enable Pod resource limits",
+          "group": "Resource Limits",
+          "schema": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        {
+          "variable": "cpuLimit",
+          "label": "CPU Limit",
+          "description": "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100.",
+          "group": "Resource Limits",
+          "schema": {
+            "type": "string",
+            "show_if": [
+              [
+                "enableResourceLimits",
+                "=",
+                true
+              ]
+            ],
+            "valid_chars": "^\\d+(?:\\.\\d+(?!.*m$)|m?$)",
+            "default": "4000m"
+          }
+        },
+        {
+          "variable": "memLimit",
+          "label": "Memory Limit",
+          "group": "Resource Limits",
+          "description": "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M,  128974848000m, 123Mi",
+          "schema": {
+            "type": "string",
+            "show_if": [
+              [
+                "enableResourceLimits",
+                "=",
+                true
+              ]
+            ],
+            "valid_chars": "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$",
+            "default": "4Gi"
+          }
+        }
+      ]
+    },
+    "app_readme": "<p><h1>FFmpeg worker to read the RTSP streams to mpegts files.</h1></p>",
+    "detailed_readme": "<p>FFmpeg worker to read the RTSP streams to mpegts files.</p>",
+    "changelog": "<p><h1>[2023.12.4]</h1> Update static videos \"/list\" logging.</p><p><h1>[2023.12.3]</h1> Update image fix \"/list\" and \"counters\".</p>"
+  },
   "2023.12.3": {
     "healthy": true,
     "supported": true,

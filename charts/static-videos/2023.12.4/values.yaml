@@ -1,0 +1,27 @@
+image:
+  pullPolicy: Always
+  repository: xerofuzzion/go-static-videos
+  tag: "0.3.3"
+
+appVolumeMounts:
+  data:
+    datasetName: "ix-static_videos"
+    mountPath: "/video"
+
+hostNetwork: false
+serviceHttpPort: 31500
+videosDataPath: "/video"
+
+service:
+  mongodb:
+    enabled: true
+    primary: true
+    type: NodePort
+    targetSelector: "static-videos"
+    ports:
+      manage-http:
+        enabled: true
+        primary: true
+        port: '{{ ( .Values.serviceHttpPort | default 31500 ) }}'
+        nodePort: '{{ ( .Values.serviceHttpPort | default 31500 ) }}'
+        targetSelector: "static-videos"
