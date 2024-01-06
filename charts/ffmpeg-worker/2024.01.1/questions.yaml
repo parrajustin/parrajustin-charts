@@ -41,10 +41,10 @@ questions:
       type: string
 
   - variable: lengthOfSegment
-    label: "Length of video segments (s)"
+    label: "Length of video segments (integer seconds)"
     group: "Configuration"
     schema:
-      type: integer
+      type: string
 
   - variable: environmentVariables
     label: "Environment Variables for FFmpeg worker Server"

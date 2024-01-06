@@ -9,7 +9,7 @@ appVolumeMounts:
     datasetName: "ix-ffmpeg_worker_data"
     mountPath: "/data/db"
 
-lengthOfSegment: 15
+lengthOfSegment: "15"
 hostNetwork: false
 ffmpegWorkerServiceHttpPort: 32500
 ffmpegWorkerServiceGrpcPort: 32400
