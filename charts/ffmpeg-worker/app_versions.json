@@ -167,7 +167,8 @@
           "label": "The database connection string",
           "group": "Configuration",
           "schema": {
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         },
         {
@@ -175,7 +176,8 @@
           "label": "RTSP connection url",
           "group": "Configuration",
           "schema": {
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         },
         {
@@ -183,6 +185,7 @@
           "label": "Camera Name",
           "group": "Configuration",
           "schema": {
+            "required": true,
             "type": "string"
           }
         },
@@ -191,7 +194,9 @@
           "label": "Length of video segments (integer seconds)",
           "group": "Configuration",
           "schema": {
-            "type": "string"
+            "type": "string",
+            "default": "15",
+            "required": true
           }
         },
         {
@@ -438,7 +443,7 @@
     },
     "app_readme": "<p><h1>FFmpeg worker to read the RTSP streams to mpegts files.</h1></p>",
     "detailed_readme": "<p>FFmpeg worker to read the RTSP streams to mpegts files.</p>",
-    "changelog": "<p><h1>[2024.01.1]</h1> Updated go-ffmpeg-worker to save fragmented mp4 files.</p>"
+    "changelog": "<p><h1>[2024.01.1]</h1> Fixed underlying worker with more metadata.</p>"
   },
   "2023.12.103": {
     "healthy": true,

@@ -27,17 +27,20 @@ questions:
     group: "Configuration"
     schema:
       type: string
+      required: true
 
   - variable: rtspConnectionUrl
     label: "RTSP connection url"
     group: "Configuration"
     schema:
       type: string
+      required: true
 
   - variable: cameraName
     label: "Camera Name"
     group: "Configuration"
     schema:
+      required: true
       type: string
 
   - variable: lengthOfSegment
@@ -45,6 +48,8 @@ questions:
     group: "Configuration"
     schema:
       type: string
+      default: "15"
+      required: true
 
   - variable: environmentVariables
     label: "Environment Variables for FFmpeg worker Server"
