@@ -344,17 +344,6 @@
           }
         },
         {
-          "variable": "ffmpegWorkerServiceGrpcPort",
-          "group": "Networking",
-          "label": "Port to expose for grpc service",
-          "schema": {
-            "type": "int",
-            "min": 9000,
-            "max": 65535,
-            "default": 32400
-          }
-        },
-        {
           "variable": "ffmpegWorkerServiceHttpPort",
           "group": "Networking",
           "label": "Port to expose for http service",

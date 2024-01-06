@@ -50,14 +50,6 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               {{ end }}
             {{ end }}
           ports:
-          - name: "grpc-tcp"
-            protocol: TCP
-            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
-            hostPort: null
-          - name: "grpc-udp"
-            protocol: UDP
-            containerPort: {{ .Values.ffmpegWorkerServiceGrpcPort }}
-            hostPort: null
           - name: "http"
             protocol: TCP
             containerPort: {{ .Values.ffmpegWorkerServiceHttpPort }}
